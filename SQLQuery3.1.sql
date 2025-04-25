@@ -1,3 +1,6 @@
+/*  Q-1   Write a SQL query to locate those salespeople who do not live in the same city where their customers live and have 
+ received a commission of more than 12% from the company. Return Customer Name, customer city, Salesman, salesman city, commission.*/
+
 SELECT 
     p1.FirstName + ' ' + p1.LastName AS CustomerName,
     cust_address.City AS CustomerCity,
@@ -19,6 +22,11 @@ WHERE cust_address.City <> sp_address.City
   AND sp.CommissionPct > 0.0012;
 
   --_____________________________________ 2ND QUERY _______________________________________________
+/*2. To list every salesperson, along with the customer's name, city, grade, order number, date, and amount, create a SQL query.Requirement for choosing the salesmen's list:
+Salespeople who work for one or more clients, or  Salespeople who haven't joined any clients yet.
+Requirements for choosing a customer list:
+placed one or more orders with their salesman, or  didn't place any orders.*/
+
 
   SELECT 
     p_sales.FirstName + ' ' + p_sales.LastName AS SalesmanName,
@@ -43,7 +51,8 @@ LEFT JOIN Person.Person p_sales ON sp.BusinessEntityID = p_sales.BusinessEntityI
 ORDER BY SalesmanName;
 
 --_________________________________________________ 3RD QUERY ______________________________________________________
-
+/* 3. Write a SQL query to calculate the difference between the maximum salary and the salary of all the employees
+who work in the department of ID 80. Return job title, employee name and salary difference. */
 SELECT 
     e.JobTitle,
     CONCAT(p.FirstName, ' ', p.LastName) AS EmployeeName,
@@ -72,7 +81,8 @@ WHERE
     AND edh.EndDate IS NULL;
 
 --______________________________________________ 4TH QUERY __________________________________________________
-
+/* 4. Create a SQL query to compare employees' year-to-date sales. Return TerritoryName, SalesYTD, BusinessEntityID, and 
+Sales from the prior year (PrevRepSales). The results are sorted by territorial name in ascending order. */
 
 
 SELECT 
@@ -89,7 +99,8 @@ ORDER BY SalesTerritory.Name ASC;
 
 
 --__________________________________________  5TH QUERY____________________________________________________
-
+/* 5. Write a SQL query to find those orders where the order amount exists
+between 500 and 2000. Return ord_no, purch_amt, cust_name, city. */
 
 
 SELECT 
@@ -105,7 +116,8 @@ ORDER BY OrderDate DESC;
 
 
 --______________________________________________6TH QUERY______________________________________
-
+/* 6. To find out if any of the current customers have placed an order or not, create a report using the following SQL statement: 
+customer name, city, order number, order datE, and order amount in ascending order based on the order date. */
 
 SELECT 
     CONCAT(p.FirstName, ' ', p.LastName) AS CustomerName,
@@ -135,7 +147,8 @@ ORDER BY
 
 
 --___________________________________________________7TH QUERY______________________________________
-
+/* 7. Create a SQL query that will return all employees with "Sales" at the start of their job titles.
+Return the columns for job title, last name, middle name, and first name. */
 SELECT 
     JobTitle,
     LastName,
